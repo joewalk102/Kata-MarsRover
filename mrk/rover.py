@@ -1,4 +1,4 @@
-from kata.planet import Planet
+from mrk import Planet
 
 
 class Rover:
