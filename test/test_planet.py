@@ -21,6 +21,12 @@ class TestPlanetCoordinates(TestCase):
 
 
 class TestPlanetPositionKey(TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.planet_height = 20
+        cls.planet_width = 20
+        cls.planet = Planet(cls.planet_width, cls.planet_height)
+
     def test_position_key(self):
         for i in range(0, 100):
             for j in range(0, 100):
