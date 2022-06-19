@@ -52,17 +52,27 @@ class TestRoverDecode(BaseRoverTest):
 class TestRoverMove(BaseRoverTest):
     def test_all_valid_actions(self):
         commands = ["F", "B", "L", "R"]
-        assert self.rover.move(
-            [random.choice(commands) for _ in range(1000)]
-        ) is True
+        assert self.rover.move([random.choice(commands) for _ in range(1000)]) is True
 
     def test_command_letter_not_supported(self):
         assert self.rover.move(["G"]) is False
-        assert self.rover.x == 0 and self.rover.y == 0 and self.rover.current_bearing == "N"
-        assert self.rover.move(["F","F","G"]) is False
-        assert self.rover.x == 0 and self.rover.y == 0 and self.rover.current_bearing == "N"
-        assert self.rover.move(["F","G","R"]) is False
-        assert self.rover.x == 0 and self.rover.y == 0 and self.rover.current_bearing == "N"
+        assert (
+            self.rover.x == 0
+            and self.rover.y == 0
+            and self.rover.current_bearing == "N"
+        )
+        assert self.rover.move(["F", "F", "G"]) is False
+        assert (
+            self.rover.x == 0
+            and self.rover.y == 0
+            and self.rover.current_bearing == "N"
+        )
+        assert self.rover.move(["F", "G", "R"]) is False
+        assert (
+            self.rover.x == 0
+            and self.rover.y == 0
+            and self.rover.current_bearing == "N"
+        )
 
     def test_obstacle_found(self):
         self.planet.set_obstacle(0, 1)
