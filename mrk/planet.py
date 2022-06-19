@@ -10,7 +10,7 @@ class Planet:
     @staticmethod
     def position_key(x: int, y: int) -> Optional[str]:
         if isinstance(x, int) and isinstance(y, int):
-            return "{x:d}:{y:d}".format(x=x, y=y)
+            return f"{x:d}:{y:d}"
 
     def get_coordinates(self, x: int, y: int) -> tuple:
         next_x = x % self.width
